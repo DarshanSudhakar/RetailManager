@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RmDataManager", "RmDataMana
 EndProject
 Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "RmData", "RmData\RmData.sqlproj", "{5BCAB62F-64D6-4037-86A9-C91B20E5A25C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RmWPFUserInterface", "RmWPFUserInterface\RmWPFUserInterface.csproj", "{87FFC094-F803-4398-9F94-071FC62FCEBE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +25,10 @@ Global
 		{5BCAB62F-64D6-4037-86A9-C91B20E5A25C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BCAB62F-64D6-4037-86A9-C91B20E5A25C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5BCAB62F-64D6-4037-86A9-C91B20E5A25C}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{87FFC094-F803-4398-9F94-071FC62FCEBE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{87FFC094-F803-4398-9F94-071FC62FCEBE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{87FFC094-F803-4398-9F94-071FC62FCEBE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{87FFC094-F803-4398-9F94-071FC62FCEBE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
