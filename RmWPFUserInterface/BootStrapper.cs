@@ -16,6 +16,11 @@ namespace RmWPFUserInterface
         public Bootstrapper()
         {
             Initialize();
+
+            ConventionManager.AddElementConvention<System.Windows.Controls.PasswordBox>(
+            Helper.PasswordBoxHelper.BoundPasswordProperty,
+            "Password",
+            "PasswordChanged");
         }
 
         protected override void Configure()
