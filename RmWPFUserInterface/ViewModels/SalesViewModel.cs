@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace RmWPFUserInterface.ViewModels
 {
-    class SalesViewModel : Screen
+    public class SalesViewModel : Screen
     {
         private BindingList<string> _products;
 
@@ -114,7 +114,7 @@ namespace RmWPFUserInterface.ViewModels
             {
                 bool output = false;
 
-                //Make sure something is in the cart to checkout
+                //Make sure there is something in the cart to checkout
 
                 return output;
             }
