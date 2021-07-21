@@ -34,8 +34,14 @@
         <!-- Row 2-->
         <!-- Column 0-->
         <TextBlock Text="Items" Grid.Row="1" Grid.Column="0" />
-        <ListBox x:Name="Product" Grid.Row="2" Grid.Column="0"
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="150"/>
+        <ListBox x:Name="Products" Grid.Row="2" Grid.Column="0"
+                 Grid.RowSpan="3" MinHeight="200" MinWidth="150">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Name}" />
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
 
 
         <!-- Column 2-->
