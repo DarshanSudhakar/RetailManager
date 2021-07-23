@@ -1,5 +1,6 @@
 ﻿using Caliburn.Micro;
 using RmDesktopUI.Library.API;
+using RmDesktopUI.Library.Helpers;
 using RmDesktopUI.Library.Model;
 using RmWPFUserInterface.Helper;
 using RmWPFUserInterface.ViewModels;
@@ -35,6 +36,7 @@ namespace RmWPFUserInterface
                 .Singleton<IWindowManager, WindowManager>()
                 .Singleton<IEventAggregator, EventAggregator>()
                 .Singleton<ILoggedInUserModel, LoggedInUserModel>()
+                .Singleton<IConfigHelper, ConfigHelper>()
                 .Singleton<IAPIHelper, APIHelper>();
 
             GetType().Assembly.GetTypes()

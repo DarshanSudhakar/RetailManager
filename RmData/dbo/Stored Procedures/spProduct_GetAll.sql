@@ -3,7 +3,7 @@ AS
 
 	SET NOCOUNT ON;
 
-	SELECT Id, [Name], [Description], RetailPrice, QuantityInStock  
+	SELECT Id, [Name], [Description], RetailPrice, QuantityInStock, IsTaxable  
 	FROM dbo.Product
 	ORDER BY Name
 RETURN 0
