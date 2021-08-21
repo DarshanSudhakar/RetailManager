@@ -1,26 +1,28 @@
 # RetailManager
-In this retail manager project to learn about architectural implementation of a multi-tier application
-Here are some of the salient features of the project
+
+## Introduction
+This project is based on [TimCo Retail Manager] course done by Tim Corey
+
+In this project, you will learn about architectural implementation of a multi-tier application. This is crucial for any technical C# and .NET interview.
+
+Pointing out some of the salient features of the project
 - Usage of Swagger
 - Creating a WPF client application
 - Usage of Dapper for data access
 - Usage of Caliburn micro for dependency injection
 - Creation of Data project
 
-There are few pending items like
+Currently, there are few pending items that needs to be done. The pending items list are as follows
 - Creation of CI and CD
 - Publishing the WPF application
 - Azure Devops
 - Migrating to .NET Core
 
-The work is under progress will update this file as and when the features are completed
-
-This project is based on [TimCo Retail Manager] course done by Tim Corey
-
 ## Getting started
-Now how do you get started? The branch to look out for is a the **phase1**. 
+If you thinking how to get started? 
+Then, head on to the branches section and look out for **phase1**. The latest code is merged to  **phase1** branch.
 
-As and when the video is covered in the playlist a corresponding pull request is made to phase1 branch and the code for that particular video is checked in.
+As and when the video is covered in the [TimCo Retail Manager] playlist; a corresponding pull request is made to phase1 branch. 
 
 For example, lets say I have watched the Video 17 - [Display Product Data - A TimCo Retail Manager Video] on the [TimCo Retail Manager] playlist. You would see a branch with the same number on this Github repo and a corresponding pull request initiated.
 
