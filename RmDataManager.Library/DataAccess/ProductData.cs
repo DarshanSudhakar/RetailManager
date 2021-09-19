@@ -14,7 +14,7 @@ namespace RmDataManager.Library.DataAccess
         {
             SqlDataAccess sql = new SqlDataAccess();
 
-            var output = sql.LoadData<ProductModel, dynamic>("RmData.dbo.spProduct_GetAll", new { }, "DefaultConnection");
+            var output = sql.LoadData<ProductModel, dynamic>("RmData.dbo.spProduct_GetAll", new { }, "RmData");
 
             return output;
         }
