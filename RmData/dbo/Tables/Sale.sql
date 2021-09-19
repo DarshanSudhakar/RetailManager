@@ -1,6 +1,6 @@
 ﻿CREATE TABLE [dbo].[Sale]
 (
-	[Id] INT NOT NULL PRIMARY KEY, 
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
     [SaleDate] DATETIME2 NOT NULL DEFAULT getutcdate(), 
     [CashierId] NVARCHAR(128) NOT NULL, 
     [SubTotal] MONEY NOT NULL, 
