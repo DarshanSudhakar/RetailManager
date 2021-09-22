@@ -81,12 +81,5 @@ namespace RmDataManager.Library.Internal.DataAccess
         {
             CommitTransaction();
         }
-
-        //Open connection/start transaction
-        //Load using the transaction
-        //Save using the transaction
-        //Close connection / stop transaction method
-        //Dispose
-
     }
 }
