@@ -56,6 +56,8 @@ namespace RmDataManager.Library.Internal.DataAccess
                 return rows;
         }
 
+        private bool _isClosed = false;
+
         public void StartTransaction(string connectionStringName)
         {
             string connectionString = GetConnectionString(connectionStringName);
@@ -63,23 +65,42 @@ namespace RmDataManager.Library.Internal.DataAccess
             _connection.Open();
 
             _transaction = _connection.BeginTransaction();
+
+            _isClosed = false;
         }
 
         public void CommitTransaction()
         {
             _transaction?.Commit();
             _connection?.Close();
+
+            _isClosed = true;
         }
 
         public void RollbackTransaction()
         {
             _transaction?.Rollback();
             _connection?.Close();
+
+            _isClosed = true;
         }
 
         public void Dispose()
         {
-            CommitTransaction();
+            if (_isClosed == false)
+            {
+                try
+                {
+                    CommitTransaction();
+                }
+                catch (Exception ex)
+                {
+                    //TODO - Log this issue
+                }
+            }
+
+            _transaction = null;
+            _connection = null;
         }
     }
 }
