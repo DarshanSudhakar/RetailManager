@@ -16,3 +16,11 @@ There are few pending items like
 The work is under progress will update this file as and when the features are completed
 
 This project is based on [TimCo Retail Manager](https://www.youtube.com/user/IAmTimCorey/playlists) course done by Tim Corey
+
+## Episode - 26
+#### What are we doing in this episode? 
+##### Mostly creating a API endpoints for following administration functions
+- GetInventory - Creating a API endpoint to get all the inventory 
+- InsertInventory - Adds a new inventory record
+- GetProducts - Gets all of the product. You can use this to check which products are decrementing and which are in surplus
+- GetSales - Gets a summary of sales
