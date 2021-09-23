@@ -24,3 +24,7 @@ This project is based on [TimCo Retail Manager](https://www.youtube.com/user/IAm
 - InsertInventory - Adds a new inventory record
 - GetProducts - Gets all of the product. You can use this to check which products are decrementing and which are in surplus
 - GetSales - Gets a summary of sales
+
+## Episode - 27
+#### What are we doing in this episode? 
+##### Adding authorization for admin API endpoint created in Episode 26
