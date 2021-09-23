@@ -19,7 +19,7 @@ This project is based on [TimCo Retail Manager](https://www.youtube.com/user/IAm
 
 ## Episode - 26
 #### What are we doing in this episode? 
-##### Mostly creating a API endpoints for following administration functions
+Mostly creating a API endpoints for following administration functions
 - GetInventory - Creating a API endpoint to get all the inventory 
 - InsertInventory - Adds a new inventory record
 - GetProducts - Gets all of the product. You can use this to check which products are decrementing and which are in surplus
@@ -27,4 +27,12 @@ This project is based on [TimCo Retail Manager](https://www.youtube.com/user/IAm
 
 ## Episode - 27
 #### What are we doing in this episode? 
-##### Adding authorization for admin API endpoint created in Episode 26
+- Adding authorization attributes for all API endpoints
+```C#
+[Authorize(Roles = "Cashier,Admin, Manager")]
+```
+
+## Episode - 28
+#### What are we doing in this episode? 
+- Showing relavent message box when user is not authorized
+- Implementing a new message box
