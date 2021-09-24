@@ -34,6 +34,11 @@ namespace RmWPFUserInterface.ViewModels
             TryClose();
         }
 
+        public void UserManagement()
+        {
+            ActivateItem(IoC.Get<UserDisplayViewModel>());
+        }
+
         public bool IsLoggedIn
         {
             get
