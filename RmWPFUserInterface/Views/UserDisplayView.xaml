@@ -28,14 +28,14 @@
 
         <!--Header-->
         <TextBlock Text="User Administration" Grid.Row="0" Grid.Column="0" 
-                   FontSize="64" Margin="0 0 0 20"/>
+                   FontSize="44" Margin="0 0 0 20"/>
 
 
         <!-- Row 2-->
         <!-- Column 0-->
         <TextBlock Text="Users" Grid.Row="1" Grid.Column="0" />
         <ListBox x:Name="Users" Grid.Row="2" Grid.Column="0"
-                 Grid.RowSpan="3" MinHeight="200" MinWidth="150">
+                 Grid.RowSpan="3" MinHeight="200" MinWidth="100" SelectedItem="SelectedUser">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Orientation="Vertical">
@@ -46,6 +46,20 @@
             </ListBox.ItemTemplate>
         </ListBox>
 
+        <!-- Column 1-->
+        <StackPanel Orientation="Vertical" Grid.Row="1" Grid.Column="1"
+                    Grid.RowSpan="2" Margin="20 0 0 0" >
+            <TextBlock x:Name="SelectedUserName" Margin="0 0 0 10"/>
+            <TextBlock Text="Current Roles" />
+            <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
+                <ListBox x:Name="SelectedUserRoles" SelectedItem="SelectedRoleToRemove" />
+                <Button x:Name="RemoveSelectedRole" Content="Remove" Margin="5 0 0 0"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <ComboBox x:Name="AvailableRoles" SelectedItem="SelectedRoleToAdd"/>
+                <Button x:Name="AddSelectedRole" Content= "Add Roles" Margin="5 0 0 0" />
+            </StackPanel>
+        </StackPanel>
 
         <!-- Column 2-->
 
