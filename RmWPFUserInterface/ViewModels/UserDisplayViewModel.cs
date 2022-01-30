@@ -128,8 +128,8 @@ namespace RmWPFUserInterface.ViewModels
                 settings.Title = "System Error";
 
                 _status.UpdateMessage("Fatal exception", ex.Message);
-                _window.ShowDialog(_status, null, settings);
-                TryClose();
+                await _window.ShowDialogAsync(_status, null, settings);
+                TryCloseAsync();
             }
         }
 
