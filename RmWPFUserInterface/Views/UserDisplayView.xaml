@@ -52,7 +52,7 @@
             <TextBlock x:Name="SelectedUserName" Margin="0 0 0 10"/>
             <TextBlock Text="Current Roles" />
             <StackPanel Orientation="Horizontal" Margin="0 0 0 10">
-                <ListBox x:Name="SelectedUserRoles" SelectedItem="SelectedRoleToRemove" />
+                <ListBox x:Name="UserRoles" SelectedItem="SelectedRoleToRemove" />
                 <Button x:Name="RemoveSelectedRole" Content="Remove" Margin="5 0 0 0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">

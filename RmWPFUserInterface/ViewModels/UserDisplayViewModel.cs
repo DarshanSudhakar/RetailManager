@@ -39,7 +39,7 @@ namespace RmWPFUserInterface.ViewModels
             {
                 _selectedUser = value;
                 SelectedUserName = value.Email;
-                SelectedUserRoles = new BindingList<string>(value.Roles.Select(x => x.Value).ToList());
+                UserRoles = new BindingList<string>(value.Roles.Select(x => x.Value).ToList());
                 LoadRoles();
                 NotifyOfPropertyChange(() => SelectedUser);
             }
@@ -81,15 +81,15 @@ namespace RmWPFUserInterface.ViewModels
             }
         }
 
-        private BindingList<string> _selectedUserRoles = new BindingList<string>();
+        private BindingList<string> _userRoles = new BindingList<string>();
 
-        public BindingList<string> SelectedUserRoles
+        public BindingList<string> UserRoles
         {
-            get { return _selectedUserRoles; }
+            get { return _userRoles; }
             set
             {
-                _selectedUserRoles = value;
-                NotifyOfPropertyChange(() => SelectedUserRoles);
+                _userRoles = value;
+                NotifyOfPropertyChange(() => UserRoles);
             }
         }
 
@@ -145,7 +145,7 @@ namespace RmWPFUserInterface.ViewModels
 
             foreach (var role in rolesList)
             {
-                if (SelectedUserRoles.IndexOf(role.Value) < 0)
+                if (UserRoles.IndexOf(role.Value) < 0)
                 {
                     AvailableRoles.Add(role.Value);
                 }
@@ -156,16 +156,16 @@ namespace RmWPFUserInterface.ViewModels
         {
             await _userEndpoint.AddUserToRole(SelectedUser.Id, SelectedAvailableRole);
 
-            SelectedUserRoles.Add(SelectedAvailableRole);
+            UserRoles.Add(SelectedAvailableRole);
             AvailableRoles.Remove(SelectedAvailableRole);
         }
 
         public async void RemoveSelectedRole()
         {
-            await _userEndpoint.RemoveUserToRole(SelectedUser.Id, SelectedAvailableRole);
+            await _userEndpoint.RemoveUserToRole(SelectedUser.Id, SelectedUserRole);
 
-            AvailableRoles.Add(SelectedAvailableRole);
-            SelectedUserRoles.Remove(SelectedAvailableRole);
+            AvailableRoles.Add(SelectedUserRole);
+            UserRoles.Remove(SelectedUserRole);
         }
     }
 }
