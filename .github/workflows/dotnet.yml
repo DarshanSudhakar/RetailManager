@@ -17,6 +17,7 @@ jobs:
       run: dotnet restore
     - name: Build
       run: |
+        dotnet build RmDataManager.Library/RmDataManager.Library.csproj --configuration release
         dotnet build RmAPI/RmAPI.csproj --configuration release
-    - name: Test
-      run: dotnet test --no-build --verbosity normal
+        dotnet build RmDesktopUI.Library/RmDesktopUI.Library.csproj
+        dotnet build RmWPFUserInterface/RmWPFUserInterface.csproj --configuration release
