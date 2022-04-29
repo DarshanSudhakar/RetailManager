@@ -1,0 +1,18 @@
+Application Ideas:
+	* Interact with the inventory
+	* Move API to Azure
+	* CI/CD pipeline
+	* Deploy destop app to blob storage for download
+	* Introduce a web based Inventory system (Blazor)
+	* Web based reporting maybe using Blazor
+	* Xamarin form for Mobile/.NET 6 mobile application
+
+
+Phase 2
+1. Take advantage of .NET Core by using Dependency injection and Logging mechanism
+2. Setup a simple task board for Azure devops
+2. CI/CD pipeline in Azure
+3. Move the API to Azure
+4. Move the Database to Azure SQL (CI)
+5. Deploy client binaries in azure blob
+6. Web based inventory control
