@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
 using RmAPI.Data;
 using RmAPI.Models;
 using RmDataManager.Library.DataAccess;
@@ -22,22 +23,25 @@ namespace RmAPI.Controllers
     {
         private readonly ApplicationDbContext _context;
         private readonly UserManager<IdentityUser> _userManager;
-        private readonly IConfiguration _config;
+        private readonly IUserData _userData;
+        private readonly ILogger<UserController> _logger;
 
-        public UserController(ApplicationDbContext context, UserManager<IdentityUser> userManager, IConfiguration config)
+        public UserController(ApplicationDbContext context,
+                              UserManager<IdentityUser> userManager,
+                              IUserData userData,
+                              ILogger<UserController> logger)
         {
             _context = context;
             _userManager = userManager;
-            _config = config;
+            _userData = userData;
+            _logger = logger;
         }
-
 
         [HttpGet]
         public UserModel GetById()
         {
-            string userId = User.FindFirstValue(ClaimTypes.NameIdentifier); //Old way - RequestContext.Principal.Identity.GetUserId();
-            UserData data = new UserData(_config);
-            return data.GetUserById(userId);
+            string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier); //Old way - RequestContext.Principal.Identity.GetUserId();
+            return _userData.GetUserById(loggedInUserId);
         }
 
         [Authorize(Roles = "Admin")]
@@ -62,12 +66,6 @@ namespace RmAPI.Controllers
 
                 u.Roles = userRoles.Where(x => x.UserId == u.Id).ToDictionary(key => key.RoleId, val => val.Name);
 
-                //Previously we used this
-                //foreach (var r in user.Roles)
-                //{
-                //    u.Roles.Add(r.RoleId, roles.Where(x => x.Id == r.RoleId).First().Name);
-                //}
-
                 output.Add(u);
             }
 
@@ -89,7 +87,12 @@ namespace RmAPI.Controllers
         [Route("Admin/AddRole")]
         public async Task AddRole(UserRolePairModel pairing)
         {
+            string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var user = await _userManager.FindByIdAsync(pairing.UserId);
+
+            _logger.LogInformation("Admin {Admin} add user {user} to role {role}", loggedInUserId, user.Id, pairing.RoleName);
+
             await _userManager.AddToRoleAsync(user, pairing.RoleName);
         }
 
@@ -98,7 +101,12 @@ namespace RmAPI.Controllers
         [Route("Admin/RemoveRole")]
         public async Task RemoveRole(UserRolePairModel pairing)
         {
+            string loggedInUserId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
             var user = await _userManager.FindByIdAsync(pairing.UserId);
+
+            _logger.LogInformation("Admin {Admin} remove user {user} from role {role}", loggedInUserId, user.Id, pairing.RoleName);
+
             await _userManager.RemoveFromRoleAsync(user, pairing.RoleName);
         }
     }
